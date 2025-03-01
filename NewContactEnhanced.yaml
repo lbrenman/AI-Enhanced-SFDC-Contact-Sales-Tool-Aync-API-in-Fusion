@@ -1,0 +1,98 @@
+---
+asyncapi: 3.0.0
+info:
+  title: New Contact Enhanced
+  version: 1.0.3
+  description: 'Sends new contact added with AI enhancements
+
+    '
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  design:
+    host: "{dataplane}"
+    protocol: https
+    title: SSE
+    description: SSE - Server Sent Events for an Outage
+    variables:
+      dataplane:
+        enum:
+        - https://10-128-148-168.nip.io:4443/asyncapi/sse
+channels:
+  newContactEnhanced:
+    address: v1/newContactEnhanced
+    messages:
+      onNewContactEnhanced.message:
+        "$ref": "#/components/messages/NewContactEnhanced"
+operations:
+  onNewContactEnhanced:
+    action: receive
+    channel:
+      "$ref": "#/channels/newContactEnhanced"
+    messages:
+    - "$ref": "#/channels/newContactEnhanced/messages/onNewContactEnhanced.message"
+components:
+  messages:
+    NewContactEnhanced:
+      name: New contact added with enhancements
+      title: New Contact Enhanced Events
+      summary: Inform about a event of new contact with enhancements
+      contentType: application/json
+      payload:
+        "$ref": "#/components/schemas/newContactEnhanced"
+  schemas:
+    newContactEnhanced:
+      type: object
+      properties:
+        contact:
+          type: object
+          properties:
+            name:
+              type: string
+            title:
+              type: string
+            company:
+              type: string
+            industry:
+              type: string
+            email:
+              type: string
+            phone:
+              type: string
+        insights:
+          type: object
+          properties:
+            personalized_outreach:
+              type: string
+            industry_summary:
+              type: string
+            talking_points:
+              type: array
+              items:
+                type: string
+            sentiment_score:
+              type: number
+            churn_risk:
+              type: string
+        recommendations:
+          type: object
+          properties:
+            next_steps:
+              type: array
+              items:
+                type: string
+        errorObject:
+          type: object
+          properties:
+            errorMessage:
+              type: string
+            errorDetails:
+              type: string
+            errors:
+              type: array
+              items:
+                properties:
+                  message:
+                    type: string
+      "$schema": http://json-schema.org/draft-04/schema#
