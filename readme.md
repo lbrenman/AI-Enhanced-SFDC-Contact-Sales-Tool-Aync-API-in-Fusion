@@ -4,6 +4,7 @@ Enhanced contact Async API created in Amplify Fusion that demonstrates how to le
 
 ![Imgur](https://i.imgur.com/WMmnzuf.png)
 
+* A demo video of the use case can be found [here](https://youtu.be/5PdzsCEAELE) and a "How it was built" video can be found [here](https://youtu.be/gH54oi4vLwE)
 * You can read more about how the prompt was engineered as well as the details of the OpenAI API call and response [here](https://gist.github.com/lbrenman/67ee78c716210448cb2605c8f5d6b2b7).
 * The Open API Specification used to create the API in Fusion is in this repo in the file `NewContactEnhanced.yaml` [here](https://github.com/lbrenman/AI-Enhanced-SFDC-Contact-Sales-Tool-Aync-API-in-Fusion/blob/master/NewContactEnhanced.yaml).
 * You can see the use case in action in a Nodejs Web app [here](https://github.com/lbrenman/new-enhanced-contact-ayncapi-nodejs-webapp)
